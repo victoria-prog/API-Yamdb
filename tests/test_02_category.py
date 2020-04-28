@@ -78,17 +78,17 @@ class Test02CategoryAPI:
         create_categories(user_client)
         response = user_client.delete('/api/v1/categories/books/')
         assert response.status_code == 204, \
-            'Проверьте, что при DELETE запросе `/api/v1/users/categories/{slug}/` возвращаете статус 204'
+            'Проверьте, что при DELETE запросе `/api/v1/categories/{slug}/` возвращаете статус 204'
         response = user_client.get('/api/v1/categories/')
         test_data = response.json()['results']
         assert len(test_data) == 1, \
-            'Проверьте, что при DELETE запросе `/api/v1/users/categories/{slug}/` удаляете категорию '
+            'Проверьте, что при DELETE запросе `/api/v1/categories/{slug}/` удаляете категорию '
         response = user_client.get('/api/v1/categories/books/')
         assert response.status_code == 405, \
-            'Проверьте, что при GET запросе `/api/v1/users/categories/{slug}/` возвращаете статус 405'
+            'Проверьте, что при GET запросе `/api/v1/categories/{slug}/` возвращаете статус 405'
         response = user_client.patch('/api/v1/categories/books/')
         assert response.status_code == 405, \
-            'Проверьте, что при PATCH запросе `/api/v1/users/categories/{slug}/` возвращаете статус 405'
+            'Проверьте, что при PATCH запросе `/api/v1/categories/{slug}/` возвращаете статус 405'
 
     def check_permissions(self, user, user_name, categories):
         client_user = auth_client(user)
