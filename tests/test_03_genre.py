@@ -69,17 +69,17 @@ class Test03GenreAPI:
         genres = create_genre(user_client)
         response = user_client.delete(f'/api/v1/genres/{genres[0]["slug"]}/')
         assert response.status_code == 204, \
-            'Проверьте, что при DELETE запросе `/api/v1/users/genres/{slug}/` возвращаете статус 204'
+            'Проверьте, что при DELETE запросе `/api/v1/genres/{slug}/` возвращаете статус 204'
         response = user_client.get('/api/v1/genres/')
         test_data = response.json()['results']
         assert len(test_data) == len(genres) - 1, \
-            'Проверьте, что при DELETE запросе `/api/v1/users/genres/{slug}/` удаляете категорию '
+            'Проверьте, что при DELETE запросе `/api/v1/genres/{slug}/` удаляете категорию '
         response = user_client.get(f'/api/v1/genres/{genres[0]["slug"]}/')
         assert response.status_code == 405, \
-            'Проверьте, что при GET запросе `/api/v1/users/genres/{slug}/` возвращаете статус 405'
+            'Проверьте, что при GET запросе `/api/v1/genres/{slug}/` возвращаете статус 405'
         response = user_client.patch(f'/api/v1/genres/{genres[0]["slug"]}/')
         assert response.status_code == 405, \
-            'Проверьте, что при PATCH запросе `/api/v1/users/genres/{slug}/` возвращаете статус 405'
+            'Проверьте, что при PATCH запросе `/api/v1/genres/{slug}/` возвращаете статус 405'
 
     def check_permissions(self, user, user_name, genres):
         client_user = auth_client(user)
