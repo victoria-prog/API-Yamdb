@@ -231,12 +231,6 @@ class Test01UserAPI:
         )
         response = user_client.patch(f'/api/v1/users/{user.username}/', data={'role': 'admin'})
         assert response.status_code == 200, (
-            'Проверьте, что при PATCH запросе `/api/v1/users/{username}/` '
-            'с токеном авторизации возвращается статус 200'
-        )
-        client_user = auth_client(user)
-        response = client_user.get(f'/api/v1/users/{admin.username}/')
-        assert response.status_code == 200, (
             'Проверьте, что при PATCH запросе `/api/v1/users/{username}/` можно изменить роль пользователя'
         )
 
