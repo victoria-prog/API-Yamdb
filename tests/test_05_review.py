@@ -23,7 +23,7 @@ class Test05ReviewAPI:
         response = client_user.post(f'/api/v1/titles/{title_id}/reviews/', data=data)
         assert response.status_code == 201, (
             'Проверьте, что при POST запросе `/api/v1/titles/{title_id}/reviews/` '
-            'с правильными данными возвращает статус 201, api доступен для любого аутентифицированные пользователя'
+            'с правильными данными возвращает статус 201, api доступен для любого аутентифицированного пользователя'
         )
         return response
 
