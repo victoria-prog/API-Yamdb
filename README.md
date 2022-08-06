@@ -1,8 +1,9 @@
-# Yamdb
+# API Yamdb
 
 ### Description
 "Yamdb" project collects user reviews on films, books, musik published by users.
 Grateful or outraged users leave text reviews for the works and they give the work an assessment.
+I wrote the backend and API for the project. 
 
 ### About the author
 Viktoria Kolomiets 
